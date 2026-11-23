@@ -21,7 +21,7 @@ Cada punto del enunciado es un apartado de la memoria y una hoja del Excel con e
 | [Vertedero_calculos.xlsx](Vertedero_calculos.xlsx) | Cálculos. Hojas `1_Ubicacion` … `7_Canales`, `Gumbel`, `Clima_AEMET`, `Resumen`. Ver «Formato del Excel». |
 | [notas_para_memoria.md](notas_para_memoria.md) | Pendientes de la memoria y decisiones asumidas. Borrar cada punto cuando esté hecho. |
 | [Vertedero_memoria.docx](Vertedero_memoria.docx) | Memoria entregable: apartados 1-7 + Bibliografía [1]-[14]. 5 figuras (visor, biogás, lixiviados, relieve, ortofoto) y 8 tablas. Tablas con columnas «Concepto / Valores (Unidades)», figuras y tablas con pie numerado automático («Figura .», «Tabla .» son campos SEQ, no texto roto). |
-| [diagramas/](diagramas/) | `diagrama_biogas.png` (malla al tresbolillo, 171 chimeneas) y `diagrama_lixiviados.png` (espina de pez, DN 500 + 72 drenes DN 200 que cubren todo el fondo; regenerado con matplotlib a partir del contorno del diagrama original escalado a 236.425 m²). Van insertados en la memoria. |
+| [diagramas/](diagramas/) | `diagrama_biogas.png` (malla al tresbolillo, 171 chimeneas) y `diagrama_lixiviados.png` (espina de pez, DN 500 + 72 drenes DN 200 que cubren todo el fondo; regenerado con matplotlib a partir del contorno del diagrama original escalado a 236.425 m²). Van insertados en la memoria. El de lixiviados no lleva texto «Datos de la red» (los datos están en el apartado 6). |
 | `Tema 8.pptx.pdf` | Apuntes del tema de vertederos (Gallardo y Colomer, UJI). **Es la referencia del método que espera el profesor** (Gumbel con tabla μn/σn, canales con C = 1, b = 2h, Manning). Ref. [12]. |
 | `BOE-A-2020-7438-consolidado.pdf` | RD 646/2020 de vertederos. Ref. [11]. |
 | `5_2ic_fom_consolidada_norma.pdf` | Norma 5.2-IC de drenaje superficial (Fomento). Tabla 3.1: n de Manning = 0,015 (hormigón in situ, 0,013-0,017). Ref. [13]. |
@@ -55,10 +55,18 @@ Las hojas se limpiaron el 23/11/2026: sin textos explicativos, sin imágenes y s
   - Al guardar con openpyxl hay que conservar las imágenes pegadas en las hojas; comprobar que siguen ahí.
   - En el docx, editar a nivel de *runs*/párrafos sin romper estilos, campos SEQ de los pies ni imágenes.
 - Estilo de la memoria: un hilo argumentativo fácil de seguir y sin rodeos. Cada apartado sigue el orden objetivo → datos → cálculo → resultado, con las ecuaciones en línea aparte y centradas y una tabla resumen. Frases cortas, valores de anteproyecto («≈»), coma decimal y punto de miles, citas como [n]. Datos sacados de capturas → mejor en tabla que en imagen.
-- Maquetación: cada apartado (2-7) y la Bibliografía empiezan en página nueva; pies de tabla encima y de figura debajo (campos SEQ); tablas con cabecera gris y filas que no se parten. Revisar la paginación convirtiendo a PDF con LibreOffice.
+- Maquetación: cada apartado (2-7) y la Bibliografía empiezan en página nueva (13 páginas; las capturas de la Figura 1 están al 88 % para que el apartado 1 quepa en la primera); cabecera: Gema Ribelles López / Marc Villamón Gómez / asignatura; pies de tabla encima y de figura debajo (campos SEQ); tablas con cabecera gris y filas que no se parten. Revisar la paginación convirtiendo a PDF con LibreOffice.
 - Preferir el método del Tema 8 cuando haya varias opciones; normativa de apoyo: RD 646/2020, MITECO (recomendaciones vertederos V1.2), IHOBE (balances hídricos), 5.2-IC.
 - Commits en español, mensaje corto con lista de lo cambiado por archivo/hoja/apartado (ver `git log`). Los binarios no tienen diff: describir los cambios en el mensaje.
 - `.gitignore` excluye los ficheros de bloqueo de ONLYOFFICE/Word (`~$*`, `.~lock.*#`). Si existe uno, el archivo está abierto: avisar antes de sobrescribirlo.
+
+## Texto quitado de la memoria (por si se quiere recuperar)
+
+Apartado 1, subsección «Qué hay que vigilar» (iba después de «Por qué este sitio»; se quitó el 23/11/2026):
+- La Marjal de Pego-Oliva (Parque Natural, LIC/ZEPA) queda a ~1,5 km al noreste.
+- La plaza está a cota baja, cerca del llano de la marjal: hay que comprobar el nivel freático y el riesgo de inundación (PATRICOVA).
+- La caliza forma un acuífero kárstico muy vulnerable, así que el vaso se impermeabiliza entero: barrera de arcilla o GCL, lámina de PEAD de 2 mm y geotextil. También hay que revisar los pozos cercanos.
+- Hay que encajar el vertedero en el planeamiento municipal y en el plan de restauración vigente de la cantera.
 
 ## Pendientes conocidos
 
