@@ -19,8 +19,8 @@ Cada punto del enunciado es un apartado de la memoria y una hoja del Excel con e
 | Archivo | Qué es |
 |---|---|
 | [Vertedero_calculos.xlsx](Vertedero_calculos.xlsx) | Cálculos. Hojas `1_Ubicacion` … `7_Canales`, `Gumbel`, `Clima_AEMET`, `Resumen`. Ver «Formato del Excel». |
-| [notas_para_memoria.md](notas_para_memoria.md) | Lo que hay que pasar o corregir en la memoria (cambios de método y contenido quitado del Excel). Borrar cada punto cuando esté hecho. |
-| [Vertedero_memoria.docx](Vertedero_memoria.docx) | Memoria entregable: apartados 1-7 + Bibliografía [1]-[12]. Tablas con columnas «Concepto / Valores (Unidades)», figuras y tablas con pie numerado automático («Figura .», «Tabla .» son campos SEQ, no texto roto). |
+| [notas_para_memoria.md](notas_para_memoria.md) | Pendientes de la memoria (figuras de canales, fuentes que faltan, E_T). Borrar cada punto cuando esté hecho. |
+| [Vertedero_memoria.docx](Vertedero_memoria.docx) | Memoria entregable: apartados 1-7 + Bibliografía [1]-[14]. 5 figuras (visor, biogás, lixiviados, relieve, ortofoto) y 8 tablas. Tablas con columnas «Concepto / Valores (Unidades)», figuras y tablas con pie numerado automático («Figura .», «Tabla .» son campos SEQ, no texto roto). |
 | [diagramas/](diagramas/) | `diagrama_biogas.png` (malla al tresbolillo, 171 chimeneas) y `diagrama_lixiviados.png` (espina de pez, DN 500 + 57 drenes DN 200). Van insertados en la memoria. |
 | `Tema 8.pptx.pdf` | Apuntes del tema de vertederos (Gallardo y Colomer, UJI). **Es la referencia del método que espera el profesor** (Gumbel con tabla μn/σn, canales con C = 1, b = 2h, Manning). Ref. [12]. |
 | `BOE-A-2020-7438-consolidado.pdf` | RD 646/2020 de vertederos. Ref. [11]. |
@@ -33,9 +33,9 @@ Cada punto del enunciado es un apartado de la memoria y una hoja del Excel con e
 - Población A1 Marina Alta (padrón 2025, ARGOS) 198.258 hab; residuos 2025 98.969 t → 1,37 kg/hab·día; rechazo a vertedero 38,95 % → ≈ 38.550 t/año.
 - Densidad 0,9 t/m³ → 7,45 Mt. Crecimiento g ≈ 2,1 % (CAGR 2023-2025). Vida útil ≈ 193 años sin crecimiento, ≈ 78 años con n = ln(1 + g·C/R0)/ln(1 + g).
 - Biogás: R = 25 m, tresbolillo s = 2R·cos30º ≈ 43 m, 146 teóricas, **171 colocadas** (contadas en el diagrama).
-- Lixiviados (Excel): P_T 746 mm × (1 − 0,45) = 410 mm infiltrados (**sin restar E_T**), H_i 20 %, Cc 0,30 → ≈ 91.840 m³/año. La memoria aún dice ≈ 29.000 con lluvia útil (ver notas_para_memoria.md). Punta con Pd de Gumbel en 24 h → 0,37 m³/s, v = 2 m/s → colector DN 500; drenes DN 200 cada 20 m (57 × 81 m + 730 m ≈ 5.350 m). Balsa = 2 × 32.300 ≈ 64.600 m³ (MITECO).
+- Lixiviados (Excel): P_T 746 mm × (1 − 0,45) = 410 mm infiltrados (**sin restar E_T**), H_i 20 %, Cc 0,30 → ≈ 91.840 m³/año. En la memoria, E_T = 0 se presenta como simplificación del lado de la seguridad. Punta con Pd de Gumbel en 24 h → 0,37 m³/s, v = 2 m/s → colector DN 500; drenes DN 200 cada 20 m (57 × 81 m + 730 m ≈ 5.350 m). Balsa = 2 × 32.300 ≈ 64.600 m³ (MITECO).
 - Gumbel: 20 años (2006-2025; AEMET 8057C Pego desde 2010, 2006-2009 con CERRA/Open-Meteo), x̄ 101,2 mm, s 32,8 mm, μn 0,5236, σn 1,0628, F = 0,995 → T = 200 años, **Pd = 248 mm**.
-- Canales (Excel): **un solo canal** perimetral. Pd en 1 h, C = 1, Q = I·A ≈ 16,3 m³/s, v = 3 m/s, b = 2h → h 1,65 m, b 3,30 m; Manning n = 0,015 → S ≈ 0,26 % < 0,5 %. Adoptado 3,3 × 1,7 m + 0,3 m = 2,0 m. La memoria aún dice 2 canales de 2,4 × 1,2 m.
+- Canales (Excel): **un solo canal** perimetral. Pd en 1 h, C = 1, Q = I·A ≈ 16,3 m³/s, v = 3 m/s, b = 2h → h 1,65 m, b 3,30 m; Manning n = 0,015 → S ≈ 0,26 % < 0,5 %. Adoptado 3,3 × 1,7 m + 0,3 m = 2,0 m.
 
 ## Formato del Excel
 
@@ -54,13 +54,14 @@ Las hojas se limpiaron el 23/11/2026: sin textos explicativos, sin imágenes y s
   - openpyxl **no recalcula** fórmulas: tras modificar el Excel, los valores cacheados quedan vacíos hasta abrirlo y guardarlo en ONLYOFFICE/Excel. Calcular los números aparte para la memoria.
   - Al guardar con openpyxl hay que conservar las imágenes pegadas en las hojas; comprobar que siguen ahí.
   - En el docx, editar a nivel de *runs*/párrafos sin romper estilos, campos SEQ de los pies ni imágenes.
-- Estilo de la memoria: frases cortas, tono de estudiante de máster, valores de anteproyecto («≈»), coma decimal y punto de miles, citas como [n] a la bibliografía. Nada de párrafos inflados.
+- Estilo de la memoria: un hilo argumentativo fácil de seguir y sin rodeos. Cada apartado sigue el orden objetivo → datos → cálculo → resultado, con las ecuaciones en línea aparte y centradas y una tabla resumen. Frases cortas, valores de anteproyecto («≈»), coma decimal y punto de miles, citas como [n]. Datos sacados de capturas → mejor en tabla que en imagen.
+- Maquetación: saltos de página antes de los apartados 5, 6, 7 y de la Bibliografía; pies de tabla encima y de figura debajo (campos SEQ); tablas con cabecera gris y filas que no se parten. Revisar la paginación convirtiendo a PDF con LibreOffice.
 - Preferir el método del Tema 8 cuando haya varias opciones; normativa de apoyo: RD 646/2020, MITECO (recomendaciones vertederos V1.2), IHOBE (balances hídricos), 5.2-IC.
 - Commits en español, mensaje corto con lista de lo cambiado por archivo/hoja/apartado (ver `git log`). Los binarios no tienen diff: describir los cambios en el mensaje.
 - `.gitignore` excluye los ficheros de bloqueo de ONLYOFFICE/Word (`~$*`, `.~lock.*#`). Si existe uno, el archivo está abierto: avisar antes de sobrescribirlo.
 
 ## Pendientes conocidos
 
-- Pasar a la memoria los cambios de lixiviados y canales: ver [notas_para_memoria.md](notas_para_memoria.md).
+- Ver [notas_para_memoria.md](notas_para_memoria.md).
 - Si alguien deja en un archivo una nota «para IA», hacer lo que pide y después borrarla.
 - La serie de Gumbel tiene 20 años y el MITECO recomienda ≥ 25 (la memoria ya lo reconoce).
