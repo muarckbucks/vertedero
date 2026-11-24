@@ -18,19 +18,19 @@ Cada punto del enunciado es un apartado de la memoria y una hoja del Excel con e
 
 | Archivo | Qué es |
 |---|---|
-| [Vertedero_calculos.xlsx](Vertedero_calculos.xlsx) | Cálculos. Hojas `1_Ubicacion` … `7_Canales`, `Gumbel`, `Clima_AEMET`, `Resumen`. Ver «Formato del Excel». |
+| [Vertedero_calculos.xlsx](Vertedero_calculos.xlsx) | Cálculos. Hojas `1_Ubicacion`, `2_Geometria`, `3_Residuos`, `4_VidaUtil` … `7_Canales`, `Gumbel`, `Clima_AEMET`, `Resumen`. Ver «Formato del Excel». |
 | [notas_para_memoria.md](notas_para_memoria.md) | Pendientes de la memoria y decisiones asumidas. Borrar cada punto cuando esté hecho. |
-| [Vertedero_memoria.docx](Vertedero_memoria.docx) | Memoria entregable: apartados 1-7 + Bibliografía [1]-[11], numerada por orden de primera aparición (sin referencias huérfanas: al quitar una cita, renumerar). 4 figuras (visor, biogás, lixiviados, relieve) y 8 tablas. Tablas con columnas «Concepto / Valores (Unidades)», figuras y tablas con pie numerado automático («Figura .», «Tabla .» son campos SEQ, no texto roto). |
+| [Vertedero_memoria.docx](Vertedero_memoria.docx) | Memoria entregable: apartados 1-7 + Bibliografía [1]-[9], numerada por orden de primera aparición (sin referencias huérfanas: al quitar una cita, renumerar). 4 figuras (visor, biogás, lixiviados, relieve) y 8 tablas. Tablas con columnas «Concepto / Valores (Unidades)», figuras y tablas con pie numerado automático («Figura .», «Tabla .» son campos SEQ, no texto roto). |
 | [diagramas/](diagramas/) | `diagrama_biogas.png` (malla al tresbolillo, 171 chimeneas) y `diagrama_lixiviados.png` (espina de pez, DN 500 + 72 drenes DN 200 que cubren todo el fondo; regenerado con matplotlib a partir del contorno del diagrama original escalado a 236.425 m²). Van insertados en la memoria. Ninguno de los dos lleva el bloque de texto «Datos de la red» (los datos están en la memoria). |
 | `Tema 8.pptx.pdf` | Apuntes del tema de vertederos (Gallardo y Colomer, UJI). **Es la referencia del método que espera el profesor** (Gumbel con tabla μn/σn, canales con b = 2h, Manning). **No se cita en la memoria** (se quitó a petición). |
 | `BOE-A-2020-7438-consolidado.pdf` | RD 646/2020 de vertederos. Ya no se cita en la memoria. |
-| `5_2ic_fom_consolidada_norma.pdf` | Norma 5.2-IC de drenaje superficial (Fomento). Tabla 3.1: n de Manning = 0,015 (hormigón in situ, 0,013-0,017). Tabla 3.2: velocidad máxima en hormigón 4,5-6 m/s (justifica v = 3 m/s). Ref. [11]. |
+| `5_2ic_fom_consolidada_norma.pdf` | Norma 5.2-IC de drenaje superficial (Fomento). Tabla 3.1: n de Manning = 0,015 (hormigón in situ, 0,013-0,017). Tabla 3.2: velocidad máxima en hormigón 4,5-6 m/s (justifica v = 3 m/s). Ref. [9]. |
 | [rescate_b8ba7bb/](rescate_b8ba7bb/) | Copia de la memoria del commit `b8ba7bb` («graficas cambiadas», de Gema) y sus imágenes extraídas, guardada como respaldo. No es la versión de trabajo. |
 
 ## Valores clave actuales (para comprobar coherencia Excel ↔ memoria)
 
 - Superficie 236.425 m² (≈ 23,6 ha), perímetro ≈ 2.372 m, profundidad 35 m (casi dos curvas de 20 m del visor GVA), volumen ≈ 8,27 Mm³.
-- Población A1 Marina Alta (padrón 2025, ARGOS) 198.258 hab; residuos 2025 98.969 t → 1,37 kg/hab·día; rechazo a vertedero 38,95 % → ≈ 38.550 t/año.
+- Residuos (apartado 3, «Residuos a vertedero»): toneladas recogidas en la Marina Alta (Consorci Mare) 2025 = 98.969 t × rechazo 38,95 % → ≈ 38.550 t/año. **No se calculan habitantes ni habitantes equivalentes** (se quitaron: no hacen falta teniendo las toneladas); tampoco se citan ARGOS ni las plazas turísticas.
 - Densidad 0,9 t/m³ → 7,45 Mt. Crecimiento g ≈ 2,1 % (CAGR 2023-2025). Vida útil ≈ 193 años sin crecimiento, ≈ 78 años con n = ln(1 + g·C/R0)/ln(1 + g).
 - Biogás: R = 25 m, tresbolillo s = 2R·cos30º ≈ 43 m, 146 teóricas, **171 colocadas** (contadas en el diagrama).
 - Lixiviados: balance P_EM = P_T − E_T ± E_C − Cc + H_i. P_T 746 mm, E_T Thornthwaite 1.086 mm → lluvia útil 263 mm (oct-mar), escorrentía 45 % (118 mm), infiltración 145 mm → 34.200 m³; retención (0,30 − 0,18) × 42.800 m³ = 5.100 m³ → ≈ 29.050 m³/año (≈ 80 m³/día). Punta con Pd de Gumbel en 24 h → 0,37 m³/s, v = 2 m/s → colector DN 500; red en espina de pez que cubre todo el fondo: colector ≈ 832 m de O a E por el centro del vaso y 72 drenes DN 200 N-S cada 20 m hasta el borde (media ≈ 163 m, máx. ≈ 278 m, que dimensiona el DN) → ≈ 12.600 m; el 99 % del fondo queda a ≤ 10 m de una tubería. Sin tener en cuenta cotas. Balsa = 2 × 32.300 ≈ 64.600 m³ (MITECO).
@@ -54,7 +54,7 @@ Las hojas se limpiaron el 23/11/2026: sin textos explicativos, sin imágenes y s
   - openpyxl **no recalcula** fórmulas: tras modificar el Excel, los valores cacheados quedan vacíos hasta abrirlo y guardarlo en ONLYOFFICE/Excel. Calcular los números aparte para la memoria.
   - Al guardar con openpyxl hay que conservar las imágenes pegadas en las hojas; comprobar que siguen ahí.
   - En el docx, editar a nivel de *runs*/párrafos sin romper estilos, campos SEQ de los pies ni imágenes.
-  - **Nunca asignar `run.text` a un run que no cambia**: en python-docx eso vacía el run y borra los `w:drawing` (las imágenes). Asignar solo si el texto nuevo es distinto y comprobar después que el docx sigue teniendo sus `<w:drawing>` (hoy 5).
+  - **Nunca asignar `run.text` a un run que no cambia**: en python-docx eso vacía el run y borra los `w:drawing` (las imágenes). Asignar solo si el texto nuevo es distinto y comprobar después que el docx sigue teniendo sus `<w:drawing>` (hoy 9).
 - Estilo de la memoria (lo marcó Marc reescribiendo los apartados 1-3): prosa en oraciones completas que se encadenan («La población se toma del padrón…», «Los residuos generados se estiman con…»). Nada de etiquetas tipo «Capacidad. …» o «Resultado. …», ni de enunciar algo y luego resolverlo, ni de listas de definiciones; viñetas solo en «Por qué este sitio». Solo las fórmulas clave van en línea aparte (balance, CAGR, vida útil, Gumbel); el resto, dentro de la frase. Valores de anteproyecto («unos», «≈»), coma decimal y punto de miles, citas [n].
 - **No mencionar el enunciado** en la memoria ni en el Excel. Tampoco se citan el visor de la GVA ni los apuntes de la asignatura (Tema 8): se nombran en el texto, pero sin [n]. La introducción empieza con «El objetivo de este trabajo es dimensionar…».
 - Idioma del docx: todo en es-ES (w:lang y themeFontLang). Si al editar en Word aparece en-US, corregirlo. Título: 32 pt con 18 pt de espacio debajo.
